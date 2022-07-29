@@ -2,6 +2,9 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.11)
 PROJECT(training)
 SET(CMAKE_CXX_STANDARD 20)
 
+
+
+
 # project
 ADD_LIBRARY(training
     ${PROJECT_SOURCE_DIR}/src/Variable.cpp
@@ -11,6 +14,16 @@ TARGET_INCLUDE_DIRECTORIES(training
     PUBLIC
         ${PROJECT_SOURCE_DIR}/include
 )
+
+
+
+
+# main
+ADD_EXECUTABLE(main ${PROJECT_SOURCE_DIR}/test/main.cpp)
+TARGET_LINK_LIBRARIES(main training)
+
+
+
 
 # test
 ADD_EXECUTABLE(test_training ${PROJECT_SOURCE_DIR}/test/test_training.cpp)
