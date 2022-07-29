@@ -3,8 +3,6 @@ PROJECT(training)
 SET(CMAKE_CXX_STANDARD 20)
 
 
-
-
 # project
 ADD_LIBRARY(training
     ${PROJECT_SOURCE_DIR}/src/Variable.cpp
@@ -16,13 +14,9 @@ TARGET_INCLUDE_DIRECTORIES(training
 )
 
 
-
-
 # main
 ADD_EXECUTABLE(main ${PROJECT_SOURCE_DIR}/test/main.cpp)
 TARGET_LINK_LIBRARIES(main training)
-
-
 
 
 # test
