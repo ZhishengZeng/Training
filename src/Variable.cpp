@@ -13,6 +13,12 @@
 
 namespace training {
 
+/**
+ * @brief plus variable number
+ *
+ * @param variable
+ * @return Variable
+ */
 Variable Variable::plus(Variable variable)
 {
   return Variable(_number + variable.get_number());
@@ -33,9 +39,9 @@ Variable Variable::dividedBy(Variable variable)
   return Variable(_number / variable.get_number());
 }
 
-void Variable::print()
+double Variable::result()
 {
-  std::cout << "The Variable is " << _number << std::endl;
+  return _number;
 }
 
 }  // namespace training

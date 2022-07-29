@@ -27,7 +27,7 @@ class Variable
   Variable minus(Variable variable);
   Variable multipliedBy(Variable variable);
   Variable dividedBy(Variable variable);
-  void print();
+  double result();
 
  private:
   double _number = 0;
