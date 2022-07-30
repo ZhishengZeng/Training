@@ -20,10 +20,12 @@ int main()
   Variable c(2.9);
   Variable d(1.5);
 
-  std::cout << "--------------------------------------------------------" << std::endl;
-  std::cout << "3.5 * 6 / 2.9 + 1.5:                             " << 3.5 * 6 / 2.9 + 1.5 << std::endl;
-  std::cout << "a.multipliedBy(b).dividedBy(c).plus(d).result(): " << a.multipliedBy(b).dividedBy(c).plus(d).result() << std::endl;
-  std::cout << "--------------------------------------------------------" << std::endl;
+  Variable y = a.multipliedBy(b).dividedBy(c).plus(d);
+
+  std::cout << "-------------------------------" << std::endl;
+  std::cout << "3.5 * 6 / 2.9 + 1.5: " << 3.5 * 6 / 2.9 + 1.5 << std::endl;
+  std::cout << "y.result():          " << y.result() << std::endl;
+  std::cout << "-------------------------------" << std::endl;
 
   return 0;
 }

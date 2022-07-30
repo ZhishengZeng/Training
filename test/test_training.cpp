@@ -14,31 +14,43 @@
 
 using namespace training;
 
+/**
+ * @brief calculate y = a + b
+ *
+ */
 TEST(BasicTest, test1)
 {
   Variable a(5);
   Variable b(5);
-
-  EXPECT_EQ(5 + 5, a.plus(b).result());
+  // y = a + b
+  Variable y = a.plus(b);
 
   std::cout << "---------------------------------------------------" << std::endl;
-  std::cout << "5 + 5:              " << 5 + 5 << std::endl;
-  std::cout << "a.plus(b).result(): " << a.plus(b).result() << std::endl;
+  std::cout << "5 + 5:                               " << 5 + 5 << std::endl;
+  std::cout << "y.result():                          " << y.result() << std::endl;
   std::cout << "---------------------------------------------------" << std::endl;
+
+  EXPECT_EQ(5 + 5, y.result());
 }
 
+/**
+ * @brief calculate y = a * x + b
+ *
+ */
 TEST(BasicTest, test2)
 {
   Variable a(3.5);
   Variable x(6);
   Variable b(2.9);
-
-  EXPECT_EQ(3.5 * 6 + 2.9, a.multipliedBy(x).plus(b).result());
+  // y = a * x + b
+  Variable y = a.multipliedBy(x).plus(b);
 
   std::cout << "---------------------------------------------------" << std::endl;
-  std::cout << "3.5 * 6 + 2.9:                      " << 3.5 * 6 + 2.9 << std::endl;
-  std::cout << "a.multipliedBy(x).plus(b).result(): " << a.multipliedBy(x).plus(b).result() << std::endl;
+  std::cout << "3.5 * 6 + 2.9:                    " << 3.5 * 6 + 2.9 << std::endl;
+  std::cout << "y.result():                       " << y.result() << std::endl;
   std::cout << "---------------------------------------------------" << std::endl;
+
+  EXPECT_EQ(3.5 * 6 + 2.9, y.result());
 }
 
 double getNumber()
@@ -46,6 +58,10 @@ double getNumber()
   return rand() % 10;
 }
 
+/**
+ * @brief calculate y = a * x + b
+ *
+ */
 TEST(RandomTest, test1)
 {
   srand((unsigned) time(NULL));
@@ -61,15 +77,19 @@ TEST(RandomTest, test1)
     Variable x(num_x);
     Variable b(num_b);
 
-    EXPECT_EQ(num_a * num_x + num_b, a.multipliedBy(x).plus(b).result());
-
     std::cout << "---------------------------------------------------" << std::endl;
-    std::cout << "num_a * num_x + num_b:           " << num_a * num_x + num_b << std::endl;
+    std::cout << "num_a * num_x + num_b:              " << num_a * num_x + num_b << std::endl;
     std::cout << "a.multipliedBy(x).plus(b).result(): " << a.multipliedBy(x).plus(b).result() << std::endl;
+    std::cout << "---------------------------------------------------" << std::endl;
+
+    EXPECT_EQ(num_a * num_x + num_b, a.multipliedBy(x).plus(b).result());
   }
-  std::cout << "---------------------------------------------------" << std::endl;
 }
 
+/**
+ * @brief calculate y = a / x + b
+ *
+ */
 TEST(RandomTest, test2)
 {
   srand((unsigned) time(NULL));
@@ -90,13 +110,13 @@ TEST(RandomTest, test2)
       continue;
     }
 
-    EXPECT_EQ(num_a / num_x + num_b, a.dividedBy(x).plus(b).result());
-
     std::cout << "---------------------------------------------------" << std::endl;
     std::cout << "num_a / num_x + num_b:           " << num_a / num_x + num_b << std::endl;
     std::cout << "a.dividedBy(x).plus(b).result(): " << a.dividedBy(x).plus(b).result() << std::endl;
+    std::cout << "---------------------------------------------------" << std::endl;
+
+    EXPECT_EQ(num_a / num_x + num_b, a.dividedBy(x).plus(b).result());
   }
-  std::cout << "---------------------------------------------------" << std::endl;
 }
 
 // EXPECT_EQ
