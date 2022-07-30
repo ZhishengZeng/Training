@@ -20,6 +20,7 @@ int main()
   Variable c(2.9);
   Variable d(1.5);
 
+  // y = a * b / c + d
   Variable y = a.multipliedBy(b).dividedBy(c).plus(d);
 
   std::cout << "-------------------------------" << std::endl;
